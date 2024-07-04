@@ -6,7 +6,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company></Company>
     <RepositoryUrl>https://github.com/RomeProduction/TinkofClientApi</RepositoryUrl>
-    <Version>0.3.0</Version>
+    <VersionPrefix>0.4.0</VersionPrefix>
+    <VersionSuffix>preview.1</VersionSuffix>
     <RepositoryType>Public</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
     <NeutralLanguage></NeutralLanguage>
