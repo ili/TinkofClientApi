@@ -7,6 +7,11 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
   /// </summary>
   public class GetStateResponse : TinkoffResponse {
     /// <summary>
+    /// Сумма в копейках
+    /// </summary>
+    [JsonRequired]
+    public uint Amount { get; set; }
+    /// <summary>
     /// Идентификатор заказа в системе продавца
     /// </summary>
     [JsonRequired]
@@ -21,5 +26,6 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// </summary>
     [JsonRequired]
     public EStatusResponse Status { get; set; }
+
   }
 }
