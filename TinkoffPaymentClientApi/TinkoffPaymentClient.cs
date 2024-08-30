@@ -7,7 +7,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using TinkoffPaymentClientApi.Commands;
 using TinkoffPaymentClientApi.Enums;
 using TinkoffPaymentClientApi.Helpers;
@@ -279,8 +278,20 @@ namespace TinkoffPaymentClientApi {
     private E ProcessResponse<T, E>(int statusCode, string request, Stream bodyStream) where E : class {
       var body = ReadToEnd(bodyStream);
       try {
-        if (statusCode == 200)
-          return JsonConvert.DeserializeObject<E>(body)!;
+        if (statusCode == 200) {
+          var r = JsonConvert.DeserializeObject<E>(body)!;
+          if (r is TinkoffResponse tr && !tr.Success) {
+            throw new TinkoffPaymentClientException(string.Format("{0}: {1} ({2})", tr.ErrorCode, tr.Message, tr.Details),
+              _baseUrl,
+              statusCode,
+              request,
+              body
+              );
+          }
+          return r;
+        }
+      } catch (TinkoffPaymentClientException) {
+        throw;
       } catch(Exception ex) {
         throw new TinkoffPaymentClientException (string.Format(Properties.Resources.ProcessResponse_ErrorOccuredWhileProcessing0For12Body3,
             typeof(E).Name,
@@ -293,7 +304,6 @@ namespace TinkoffPaymentClientApi {
           body,
           ex);
       }
-
 
       throw new TinkoffPaymentClientException(string.Format(Properties.Resources.ProcessResponse_WrongAnswerReveivedFrom0For1Status2Body3,
           _baseUrl, 

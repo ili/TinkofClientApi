@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using TinkoffPaymentClientApi.Enums;
-
-namespace TinkoffPaymentClientApi.Models {
+﻿namespace TinkoffPaymentClientApi.Models {
   /// <summary>
   /// Детали по статусу заказа
   /// https://www.tinkoff.ru/kassa/develop/api/payments/checkorder-response/
@@ -13,7 +7,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// <summary>
     /// Уникальный идентификатор транзакции в системе Банка	
     /// </summary>
-    [JsonRequired]
+    
     public int PaymentId { get; set; }
     /// <summary>
     /// Сумма операции в копейках	
@@ -22,7 +16,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// <summary>
     /// Статус транзакции
     /// </summary>
-    [JsonRequired]
+    
     public string Status { get; set; } = string.Empty;
     /// <summary>
     /// RRN операции

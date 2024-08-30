@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TinkoffPaymentClientApi.Attributes;
 using TinkoffPaymentClientApi.Enums;
 using TinkoffPaymentClientApi.Models;

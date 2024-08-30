@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using TinkoffPaymentClientApi.Enums;
 
 namespace TinkoffPaymentClientApi.Models {
   /// <summary>

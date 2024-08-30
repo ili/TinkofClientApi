@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using TinkoffPaymentClientApi.Enums;
-
-namespace TinkoffPaymentClientApi.ResponseEntity {
+﻿namespace TinkoffPaymentClientApi.ResponseEntity {
   /// <summary>
   /// Данные о подтверждении платежа
   /// </summary>
@@ -12,22 +6,18 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// <summary>
     /// Номер заказа в системе Продавца
     /// </summary>
-    [JsonRequired]
     public string OrderId { get; set; } = string.Empty;
     /// <summary>
     /// Статус платежа
     /// </summary>
-    [JsonRequired]
     public string Status { get; set; } = string.Empty;
     /// <summary>
     /// Сумма в копейках
     /// </summary>
-    [JsonRequired]
     public uint Amount { get; set; }
     /// <summary>
     /// Уникальный идентификатор транзакции в системе банка
     /// </summary>
-    [JsonRequired]
     public string PaymentId { get; set; } = string.Empty;
     /// <summary>
     /// Идентификатор карты в системе банка. Передается только для сохраненной карты
