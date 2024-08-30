@@ -1,47 +1,35 @@
-﻿using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Способ расчета
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum EPaymentMethod {
+  public static class EPaymentMethod {
     /// <summary>
     /// Полный расчет
     /// </summary>
-    [EnumMember(Value = "full_payment")]
-    FullPayment = 1,
+    public const string FullPayment = "full_payment";
     /// <summary>
     /// Предоплата 100%
     /// </summary>
-    [EnumMember(Value = "full_prepayment")]
-    FullPrepayment,
+    public const string FullPrepayment = "full_prepayment";
     /// <summary>
     /// Предоплата
     /// </summary>
-    [EnumMember(Value = "prepayment")]
-    Prepayment,
+    public const string Prepayment = "prepayment";
     /// <summary>
     /// Аванс
     /// </summary>
-    [EnumMember(Value = "advance")]
-    Advance,
+    public const string Advance = "advance";
     /// <summary>
     /// Частичный расчет и кредит
     /// </summary>
-    [EnumMember(Value = "partial_payment")]
-    PartialPayment,
+    public const string PartialPayment = "partial_payment";
     /// <summary>
     /// Передача в кредит
     /// </summary>
-    [EnumMember(Value = "credit")]
-    Credit,
+    public const string Credit = "credit";
     /// <summary>
     /// Оплата кредита
     /// </summary>
-    [EnumMember(Value = "credit_payment")]
-    CreditPayment,
+    public const string CreditPayment = "credit_payment";
   }
 }

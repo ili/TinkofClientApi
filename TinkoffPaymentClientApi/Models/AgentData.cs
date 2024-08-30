@@ -9,7 +9,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// <summary>
     /// Признак агента
     /// </summary>
-    public EAgentSign? AgentSign { get; set; }
+    public string? AgentSign { get; set; }
 
     /// <summary>
     /// Наименование операции. Обязателен в случае если <see cref="AgentSign"/> принимает одно из значений:

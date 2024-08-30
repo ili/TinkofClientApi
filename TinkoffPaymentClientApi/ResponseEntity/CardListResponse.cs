@@ -27,7 +27,7 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// Статус карты
     /// </summary>
     [JsonRequired]
-    public ECardStatus Status { get; set; }
+    public string Status { get; set; } = string.Empty;
     /// <summary>
     /// Идентификатор автоплатежа	
     /// </summary>

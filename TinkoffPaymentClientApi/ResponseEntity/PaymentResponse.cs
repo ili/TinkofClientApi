@@ -24,7 +24,7 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// <summary>
     /// Статус платежа
     /// </summary>
-    public EStatusResponse? Status { get; set; }
+    public string? Status { get; set; }
     /// <summary>
     /// Ссылка на платежную форму
     /// </summary>

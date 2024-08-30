@@ -18,7 +18,7 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// Статус платежа
     /// </summary>
     [JsonRequired]
-    public EStatusResponse Status { get; set; }
+    public string Status { get; set; } = string.Empty;
     /// <summary>
     /// Сумма в копейках
     /// </summary>

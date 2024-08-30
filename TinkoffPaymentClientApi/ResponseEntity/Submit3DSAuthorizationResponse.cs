@@ -33,6 +33,6 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// Статус транзакции
     /// </summary>
     [JsonRequired]
-    public EStatusResponse Status { get; set; }
+    public string Status { get; set; } = string.Empty;
   }
 }

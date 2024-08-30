@@ -25,7 +25,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// Ставка НДС
     /// </summary>
     [JsonProperty(PropertyName = "Tax", Required = Required.Always)]
-    public ETax Tax { get; private set; }
+    public string Tax { get; private set; }
 
     /// <summary>
     /// Стоимость товара в копейках, произведение <see cref="Quantity"/> и <see cref="Price"/>
@@ -44,11 +44,11 @@ namespace TinkoffPaymentClientApi.Models {
     /// <summary>
     /// Признак способа расчета
     /// </summary>
-    public EPaymentMethod? PaymentMethod { get; set; }
+    public string? PaymentMethod { get; set; }
     /// <summary>
     /// Признак предмета расчета
     /// </summary>
-    public EPaymentObject? PaymentObject { get; set; }
+    public string? PaymentObject { get; set; }
     /// <summary>
     /// Данные агента. Используется при работе по агентской схеме.
     /// </summary>
@@ -60,7 +60,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// </summary>
     public SupplierInfo? SupplierInfo { get; set; }
 
-    public ReceiptItem(string name, uint quantity, uint price, ETax tax) {
+    public ReceiptItem(string name, uint quantity, uint price, string tax) {
       Name = name;
       Quantity = quantity;
       Price = price;

@@ -1,77 +1,59 @@
-﻿using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Предмет расчета
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum EPaymentObject {
+  public static class EPaymentObject {
     /// <summary>
     /// Товар
     /// </summary>
-    [EnumMember(Value = "commodity")]
-    Commodity = 1,
+    public const string Commodity = "commodity";
     /// <summary>
     /// Подакцизный товар
     /// </summary>
-    [EnumMember(Value = "excise")]
-    Excise,
+    public const string Excise = "excise";
     /// <summary>
     /// Работа
     /// </summary>
-    [EnumMember(Value = "job")]
-    Job,
+    public const string Job = "job";
     /// <summary>
     /// Услуга
     /// </summary>
-    [EnumMember(Value = "service")]
-    Service,
+    public const string Service = "service";
     /// <summary>
     /// Ставка азартной игры
     /// </summary>
-    [EnumMember(Value = "gambling_bet")]
-    GamblingBet,
+    public const string GamblingBet = "gambling_bet";
     /// <summary>
     /// Выигрыш азартной игры
     /// </summary>
-    [EnumMember(Value = "gambling_prize")]
-    GamblingPrize,
+    public const string GamblingPrize = "gambling_prize";
     /// <summary>
     /// Лотерейный билет
     /// </summary>
-    [EnumMember(Value = "lottery")]
-    Lottery,
+    public const string Lottery = "lottery";
     /// <summary>
     /// Выигрыш лотереи
     /// </summary>
-    [EnumMember(Value = "lottery_prize")]
-    LotteryPrize,
+    public const string LotteryPrize = "lottery_prize";
     /// <summary>
     /// Предоставление результатов интеллектуальной деятельности
     /// </summary>
-    [EnumMember(Value = "intellectual_activity")]
-    IntellectualActivity,
+    public const string IntellectualActivity = "intellectual_activity";
     /// <summary>
     /// Платеж
     /// </summary>
-    [EnumMember(Value = "payment")]
-    Payment,
+    public const string Payment = "payment";
     /// <summary>
     /// Агентское вознаграждение
     /// </summary>
-    [EnumMember(Value = "agent_commission")]
-    AgentCommission,
+    public const string AgentCommission = "agent_commission";
     /// <summary>
     /// Составной предмет расчета
     /// </summary>
-    [EnumMember(Value = "composite")]
-    Composite,
+    public const string Composite = "composite";
     /// <summary>
     /// Иной предмет расчета
     /// </summary>
-    [EnumMember(Value = "another")]
-    Another,
+    public const string Another = "another";
   }
 }

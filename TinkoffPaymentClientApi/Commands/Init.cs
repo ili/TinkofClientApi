@@ -56,11 +56,11 @@ namespace TinkoffPaymentClientApi.Commands {
     /// <summary>
     /// Язык платежной формы
     /// </summary>
-    public ELanguageForm? Language { get; set; } = ELanguageForm.Ru;
+    public string? Language { get; set; } = ELanguageForm.Ru;
     /// <summary>
     /// Тип оплаты, одно или дву стадийная
     /// </summary>
-    public EPayType? PayType { get; set; }
+    public string? PayType { get; set; }
     /// <summary>
     /// Данные по чеку
     /// </summary>

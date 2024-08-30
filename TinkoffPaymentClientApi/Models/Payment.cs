@@ -23,7 +23,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// Статус транзакции
     /// </summary>
     [JsonRequired]
-    public EStatusResponse Status { get; set; }
+    public string Status { get; set; } = string.Empty;
     /// <summary>
     /// RRN операции
     /// </summary>

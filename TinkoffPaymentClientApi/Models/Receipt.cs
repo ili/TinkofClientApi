@@ -20,7 +20,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// Система налогообложения.
     /// </summary>
     [JsonProperty(PropertyName = "Taxation", Required = Required.Always)]
-    public ETaxation Taxation { get; private set; }
+    public string Taxation { get; private set; }
     /// <summary>
     /// Электронная почта продавца
     /// </summary>
@@ -42,7 +42,7 @@ namespace TinkoffPaymentClientApi.Models {
     /// </summary>
     public Payments? Payments { get; set; }
 
-    public Receipt(string phone, string email, ETaxation taxation, IEnumerable<ReceiptItem> items) {
+    public Receipt(string phone, string email, string taxation, IEnumerable<ReceiptItem> items) {
       if(string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone)) {
         throw new ArgumentNullException(TinkoffPaymentClientApi.Properties.Resources.Receipt_PhoneOrEmailShouldBeProvided);
       }

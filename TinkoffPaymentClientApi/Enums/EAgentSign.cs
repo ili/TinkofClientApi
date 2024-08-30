@@ -6,42 +6,34 @@ namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Признак агента
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum EAgentSign {
+  public static class EAgentSign {
     /// <summary>
     /// Банковский платежный агент
     /// </summary>
-    [EnumMember(Value = "bank_paying_agent")]
-    BankPayingAgent = 1,
+    public const string BankPayingAgent = "bank_paying_agent";
     /// <summary>
     /// Банковский платежный субагент
     /// </summary>
-    [EnumMember(Value = "bank_paying_subagent")]
-    BankPayingSubagent,
+    public const string BankPayingSubagent = "bank_paying_subagent";
     /// <summary>
     /// Платежный агент
     /// </summary>
-    [EnumMember(Value = "paying_agent")]
-    PayingAgent,
+    public const string PayingAgent = "paying_agent";
     /// <summary>
     /// Платежный субагент
     /// </summary>
-    [EnumMember(Value = "paying_subagent")]
-    PayingSubagent,
+    public const string PayingSubagent = "paying_subagent";
     /// <summary>
     /// Поверенный
     /// </summary>
-    [EnumMember(Value = "attorney")]
-    Attorney,
+    public const string Attorney = "attorney";
     /// <summary>
     /// Комиссионер
     /// </summary>
-    [EnumMember(Value = "commission_agent")]
-    CommissionAgent,
+    public const string CommissionAgent = "commission_agent";
     /// <summary>
     /// Другой тип агента
     /// </summary>
-    [EnumMember(Value = "another")]
-    Another,
+    public const string Another = "another";
   }
 }

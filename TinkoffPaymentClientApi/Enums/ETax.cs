@@ -1,42 +1,31 @@
-﻿using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Ставка НДС
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum ETax {
+  public static class ETax {
     /// <summary>
     /// Без НДС
     /// </summary>
-    [EnumMember(Value = "none")]
-    None = 1,
+    public const string None = "none";
     /// <summary>
     /// 0%
     /// </summary>
-    [EnumMember(Value = "vat0")]
-    Vat0,
+    public const string Vat0 = "vat0";
     /// <summary>
     /// 10%
     /// </summary>
-    [EnumMember(Value = "vat10")]
-    Vat10,
+    public const string Vat10 = "vat10";
     /// <summary>
     /// 20%
     /// </summary>
-    [EnumMember(Value = "vat20")]
-    Vat20,
+    public const string Vat20 = "vat20";
     /// <summary>
     /// 10/110
     /// </summary>
-    [EnumMember(Value = "vat110")]
-    Vat110,
+    public const string Vat110 = "vat110";
     /// <summary>
     /// 20/120
     /// </summary>
-    [EnumMember(Value = "vat120")]
-    Vat120,
+    public const string Vat120 = "vat120";
   }
 }

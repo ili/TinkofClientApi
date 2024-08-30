@@ -1,27 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
 
   /// <summary>
   /// Источник платежа
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum EPaymentSource {
+  public static class EPaymentSource {
     /// <summary>
     /// Картой
     /// </summary>
-    Cards,
+    public static string Cards = "Cards";
     /// <summary>
     /// ApplePay
     /// </summary>
-    ApplePay,
+    public static string ApplePay = "ApplePay";
     /// <summary>
     /// GooglePay
     /// </summary>
-    GooglePay
+    public static string GooglePay = "GooglePay";
   }
 }

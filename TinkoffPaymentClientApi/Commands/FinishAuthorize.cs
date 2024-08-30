@@ -80,7 +80,7 @@ namespace TinkoffPaymentClientApi.Commands {
     /// Источник платежа.
     /// Используется и является обязательным для Apple Pay или Google Pay
     /// </summary>
-    public EPaymentSource? Source { get; set; }
+    public string? Source { get; set; }
 
     internal override string CommandName => "FinishAuthorize";
   }

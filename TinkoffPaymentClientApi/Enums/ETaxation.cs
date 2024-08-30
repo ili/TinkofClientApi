@@ -1,42 +1,31 @@
-﻿using System.Runtime.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Система налогооблажения
   /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum ETaxation {
+  public static class ETaxation {
     /// <summary>
     /// Общая
     /// </summary>
-    [EnumMember(Value = "osn")]
-    Osn = 1,
+    public const string Osn = "osn";
     /// <summary>
     /// Упрощенная (доходы)
     /// </summary>
-    [EnumMember(Value = "usn_income")]
-    UsnIncome,
+    public const string UsnIncome = "usn_income";
     /// <summary>
     /// Упрощенная (доходы минус расходы)
     /// </summary>
-    [EnumMember(Value = "usn_income_outcome")]
-    UsnIncomeOutcome,
+    public const string UsnIncomeOutcome = "usn_income_outcome";
     /// <summary>
     /// Патентная
     /// </summary>
-    [EnumMember(Value = "patent")]
-    Patent,
+    public const string Patent = "patent";
     /// <summary>
     /// Единый налог на вмененный доход
     /// </summary>
-    [EnumMember(Value = "envd")]
-    Envd,
+    public const string Envd = "envd";
     /// <summary>
     /// Единый сельскохозяйственный налог
     /// </summary>
-    [EnumMember(Value = "esn")]
-    Esn,
+    public const string Esn = "esn";
   }
 }

@@ -1,104 +1,89 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System.Runtime.Serialization;
-
-namespace TinkoffPaymentClientApi.Enums {
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum  EStatusResponse {
+﻿namespace TinkoffPaymentClientApi.Enums {
+  
+  public static class EStatusResponse {
     /// <summary>
     /// Создан
     /// </summary>
-    [EnumMember(Value = "NEW")]
-    New = 1,
+    public const string New = "NEW";
     /// <summary>
     /// Платежная форма открыта покупателем
     /// </summary>
-    [EnumMember(Value = "FORM_SHOWED")]
-    FormShowed,
+    public const string FormShowed = "FORM_SHOWED";
     /// <summary>
     /// Просрочен
     /// </summary>
-    [EnumMember(Value = "DEADLINE_EXPIRED")]
-    DeadlineExpired,
+    public const string DeadlineExpired = "DEADLINE_EXPIRED";
     /// <summary>
     /// Отменен
     /// </summary>
-    [EnumMember(Value = "CANCELED")]
-    Canceled,
+    public const string Canceled = "CANCELED";
     /// <summary>
     /// Проверка платежных данных. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "PREAUTHORIZING")]
-    Preauthorizing,
+    public const string Preauthorizing = "PREAUTHORIZING";
     /// <summary>
     /// Резервируется. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "AUTHORIZING")]
-    Authorizing,
+    public const string Authorizing = "AUTHORIZING";
     /// <summary>
     /// Зарезервирован
     /// </summary>
-    [EnumMember(Value = "AUTHORIZED")]
-    Authorized,
+    public const string Authorized = "AUTHORIZED";
     /// <summary>
     /// Не прошел авторизацию. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "AUTH_FAIL")]
-    AuthFail,
+    public const string AuthFail = "AUTH_FAIL";
     /// <summary>
     /// Отклонен
     /// </summary>
-    [EnumMember(Value = "REJECTED")]
-    Rejected,
+    public const string Rejected = "REJECTED";
     /// <summary>
     /// Проверяется по протоколу 3-D Secure
     /// </summary>
-    [EnumMember(Value = "3DS_CHECKING")]
-    ThreeDSChecking,
+    public const string ThreeDSChecking = "3DS_CHECKING";
     /// <summary>
     /// Проверен по протоколу 3-D Secure. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "3DS_CHECKED")]
-    ThreeDSChecked,
+    public const string ThreeDSChecked = "3DS_CHECKED";
     /// <summary>
     /// Резервирование отменяется. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "REVERSING")]
-    Reversing,
+    public const string Reversing = "REVERSING";
     /// <summary>
     /// Резервирование отменено частично
     /// </summary>
-    [EnumMember(Value = "PARTIAL_REVERSED")]
-    PartialReversed,
+    public const string PartialReversed = "PARTIAL_REVERSED";
     /// <summary>
     /// Резервирование отменено
     /// </summary>
-    [EnumMember(Value = "REVERSED")]
-    Reversed,
+    public const string Reversed = "REVERSED";
     /// <summary>
     /// Подтверждается. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "CONFIRMING")]
-    Confirming,
+    public const string Confirming = "CONFIRMING";
     /// <summary>
     /// Подтвержден
     /// </summary>
-    [EnumMember(Value = "CONFIRMED")]
-    Confirmed,
+    public const string Confirmed = "CONFIRMED";
     /// <summary>
     /// Возвращается. Промежуточный.
     /// </summary>
-    [EnumMember(Value = "REFUNDING")]
-    Refunding,
+    public const string Refunding = "REFUNDING";
     /// <summary>
     /// Возвращен частично
     /// </summary>
-    [EnumMember(Value = "PARTIAL_REFUNDED")]
-    PartialRefunded,
+    public const string PartialRefunded = "PARTIAL_REFUNDED";
     /// <summary>
     /// Возвращен полностью
     /// </summary>
-    [EnumMember(Value = "REFUNDED")]
-    Refunded,
+    public const string Refunded = "REFUNDED";
+    /// <summary>
+    /// Обработка возврата денежных средств по QR
+    /// </summary>
+    public const string AsyncRefunding = "ASYNC_REFUNDING";
+    /// <summary>
+    /// Клиент превысил количество попыток открытия формы
+    /// </summary>
+    public const string AttemptsExpired = "ATTEMPTS_EXPIRED";
   }
 }

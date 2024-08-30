@@ -1,24 +1,19 @@
-﻿using System.Runtime.Serialization;
-
-namespace TinkoffPaymentClientApi.Enums {
+﻿namespace TinkoffPaymentClientApi.Enums {
   /// <summary>
   /// Статус карты
   /// </summary>
-  public enum ECardStatus {
+  public static class ECardStatus {
     /// <summary>
     /// Активная
     /// </summary>
-    [EnumMember(Value = "A")]
-    Active,
+    public const string Active = "A";
     /// <summary>
     /// Неактивная
     /// </summary>
-    [EnumMember(Value = "I")]
-    Inactive,
+    public const string Inactive = "I";
     /// <summary>
     /// Удаленная
     /// </summary>
-    [EnumMember(Value = "D")]
-    Deleted
+    public const string Deleted = "D";
   }
 }
