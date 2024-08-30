@@ -16,7 +16,7 @@ using TinkoffPaymentClientApi.ResponseEntity;
 namespace TinkoffPaymentClientApi {
   /// <summary>
   /// Клиент к API онлайн эквайринга Tinkoff
-  /// https://oplata.tinkoff.ru/develop/api/payments/
+  /// https://www.tbank.ru/kassa/dev/payments/
   /// </summary>
   public sealed class TinkoffPaymentClient {
     private static readonly HttpClient DefaultHttpClient = new HttpClient();
