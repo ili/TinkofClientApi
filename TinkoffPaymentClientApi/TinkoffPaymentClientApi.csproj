@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.0;net461;net5;net6</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461;net5;net6;net7;net8</TargetFrameworks>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company></Company>
     <RepositoryUrl>https://github.com/RomeProduction/TinkofClientApi</RepositoryUrl>
-    <Version>0.3.0</Version>
+    <Version>0.3.1</Version>
     <RepositoryType>Public</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
     <NeutralLanguage></NeutralLanguage>
@@ -19,6 +19,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>Latest</LangVersion>
     <Nullable>enable</Nullable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -35,6 +36,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="../README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <ItemGroup>

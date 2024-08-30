@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using TinkoffPaymentClientApi;
 using TinkoffPaymentClientApi.Commands;
 using TinkoffPaymentClientApi.Models;
@@ -8,18 +10,20 @@ using TinkoffPaymentClientApi.ResponseEntity;
 
 namespace TinkofClientApi {
   class Program {
-    static void Main(string[] args) {
-      var clientApi = new TinkoffPaymentClient("DEMO", "TEST_Password");
+    static async Task Main(string[] args) {
+      var terminalKey = args.FirstOrDefault() ?? "DEMO";
+      var password = args.Skip(1).FirstOrDefault() ?? "TEST_Password";
+      var clientApi = new TinkoffPaymentClient(terminalKey, password);
         CancellationToken cancellationToken = CancellationToken.None;
       //должна быть в копейках
       var amount = 10u * 100;
-      var result = clientApi.InitAsync(new Init(Guid.NewGuid() + "", amount) {
+      var result = await clientApi.InitAsync(new Init(Guid.NewGuid() + "", amount) {
         Receipt = new Receipt(string.Empty, "test@mail.ru", TinkoffPaymentClientApi.Enums.ETaxation.Osn,
           new List<ReceiptItem> {
               new ReceiptItem("test", 1, 10 * 100, TinkoffPaymentClientApi.Enums.ETax.Vat20),
           }),
         }.SetEmail("test@mail.ru"),
-        cancellationToken).Result;
+        cancellationToken);
 
       Console.WriteLine("Init result: " + result.Success);
 

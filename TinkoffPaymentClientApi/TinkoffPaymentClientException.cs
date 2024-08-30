@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace TinkoffPaymentClientApi {
 
@@ -33,6 +31,7 @@ namespace TinkoffPaymentClientApi {
       Response = response;
     }
 
+#if !NET8_0_OR_GREATER
     protected TinkoffPaymentClientException(
       SerializationInfo info,
       StreamingContext context) : base(info, context) {
@@ -41,7 +40,6 @@ namespace TinkoffPaymentClientApi {
       Request = info.GetString(nameof(Request))!;
       Response = info.GetString(nameof(Response))!;
     }
-
     public override void GetObjectData(SerializationInfo info, StreamingContext context) {
       base.GetObjectData(info, context);
       info.AddValue(nameof(BaseUrl),BaseUrl);
@@ -49,6 +47,7 @@ namespace TinkoffPaymentClientApi {
       info.AddValue(nameof(Request),Request);
       info.AddValue(nameof(Response),Response);
     }
+#endif
 
     /// <summary>
     /// Базовый адрес платежного шлюза
