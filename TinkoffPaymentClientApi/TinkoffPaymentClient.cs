@@ -327,7 +327,11 @@ namespace TinkoffPaymentClientApi {
 
       using (var request = BuildRequest(parameter, json, out var requestBody)) {
         using (var response = await _httpClient.SendAsync(request, token))
-          return ProcessResponse<T, E>((int)response.StatusCode, requestBody, await response.Content.ReadAsStreamAsync(token));
+          return ProcessResponse<T, E>((int)response.StatusCode, requestBody, await response.Content.ReadAsStreamAsync(
+#if NET5_0_OR_GREATER
+            token
+#endif
+            ));
       }
       //return JsonConvert.DeserializeObject<E>(response);
     }
