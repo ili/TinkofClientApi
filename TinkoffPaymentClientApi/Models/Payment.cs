@@ -8,7 +8,7 @@
     /// Уникальный идентификатор транзакции в системе Банка	
     /// </summary>
     
-    public int PaymentId { get; set; }
+    public string? PaymentId { get; set; }
     /// <summary>
     /// Сумма операции в копейках	
     /// </summary>

@@ -11,7 +11,7 @@ namespace TinkoffPaymentClientApi.ResponseEntity {
     /// <summary>
     /// Номер заказа в системе Продавца	
     /// </summary>
-    public int OrderId { get; set; }
+    public string? OrderId { get; set; }
 
     /// <summary>
     /// Детали
