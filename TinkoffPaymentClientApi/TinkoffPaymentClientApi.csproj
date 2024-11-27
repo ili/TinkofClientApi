@@ -6,7 +6,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company></Company>
     <RepositoryUrl>https://github.com/RomeProduction/TinkofClientApi</RepositoryUrl>
-    <Version>0.3.2</Version>
+    <VersionPrefix>0.4.0</VersionPrefix>
+    <VersionSuffix>preview.2</VersionSuffix>
     <RepositoryType>Public</RepositoryType>
     <PackageReleaseNotes></PackageReleaseNotes>
     <NeutralLanguage></NeutralLanguage>
@@ -23,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">

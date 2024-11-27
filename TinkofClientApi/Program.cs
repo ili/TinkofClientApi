@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using TinkoffPaymentClientApi;
@@ -11,6 +12,7 @@ using TinkoffPaymentClientApi.ResponseEntity;
 namespace TinkofClientApi {
   class Program {
     static async Task Main(string[] args) {
+      var rnd = new Random();
       var terminalKey = args.FirstOrDefault() ?? "DEMO";
       var password = args.Skip(1).FirstOrDefault() ?? "TEST_Password";
       var clientApi = new TinkoffPaymentClient(terminalKey, password);
@@ -60,7 +62,35 @@ namespace TinkofClientApi {
       };
       isCorrect = response.CheckToken("Dfsfh56dgKl");
       Console.WriteLine("Second check notification: " + isCorrect);
+
+      Console.WriteLine("Check Qr responses");
+      CheckQr(rnd.Next(100000));
       Console.ReadKey();
+    }
+
+    public static void CheckQr(int orderId) {
+      var payment = new Init($"{orderId}", 100);
+      var httpClient = new HttpClient();
+      var client = new TinkoffPaymentClient(httpClient, "Demo", "password");
+      var paymentResponse = client.Init(payment);
+      //На тесте нельзя получить Qr-код и изменить статус платежа
+      try 
+      {
+        var qrResponse = client.GetQr(new GetQr(paymentResponse.PaymentId));
+        Console.WriteLine(qrResponse.Data);
+      } 
+      catch (TinkoffPaymentClientException ex)
+      {
+        Console.WriteLine(ex.Message);
+      }
+      try 
+      {
+        var sbpPayTest = client.SbpPayTest(new SbpPayTest(paymentResponse.PaymentId));
+        Console.WriteLine(sbpPayTest.Details);
+      } 
+      catch (TinkoffPaymentClientException ex) {
+        Console.WriteLine(ex.Message);
+      }
     }
   }
 }

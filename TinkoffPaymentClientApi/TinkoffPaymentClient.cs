@@ -228,6 +228,26 @@ namespace TinkoffPaymentClientApi {
       => Post<GetCustomer, GetCustomerResponse>(getCustomer);
 
     /// <summary>
+    /// Метод регистрирует QR и возвращает информацию о нем. Должен быть вызван после вызова метода Init
+    /// </summary>
+    /// <returns></returns>
+    public Task<QrResponse> GetQrAsync(GetQr getQr, CancellationToken cancellationToken)
+      => PostAsync<GetQr, QrResponse>(getQr, cancellationToken);
+    /// <inheritdoc cref="GetQrAsync(Commands.GetQr,CancellationToken)"/>
+    public QrResponse GetQr(GetQr getQr)
+      => Post<GetQr, QrResponse>(getQr);
+
+    /// <summary>
+    /// Метод регистрирует QR и возвращает информацию о нем. Должен быть вызван после вызова метода Init
+    /// </summary>
+    /// <returns></returns>
+    public Task<SbpPayTestResponse> SbpPayTestAsync(SbpPayTest sbpPayTest, CancellationToken cancellationToken)
+      => PostAsync<SbpPayTest, SbpPayTestResponse>(sbpPayTest, cancellationToken);
+    /// <inheritdoc cref="SbpPayTestAsync(Commands.SbpPayTest,CancellationToken)"/>
+    public SbpPayTestResponse SbpPayTest(SbpPayTest sbpPayTest)
+      => Post<SbpPayTest, SbpPayTestResponse>(sbpPayTest);
+
+    /// <summary>
     /// 
     /// </summary>
     /// <param name="removeCustomer"></param>
@@ -321,9 +341,21 @@ namespace TinkoffPaymentClientApi {
       where E : class
       => PostAsync<T, E>(parameter, true, token);
 
+#if NETCOREAPP3_1 || NETSTANDARD2_0 || NET461
     private async Task<E> PostAsync<T, E>(T parameter, bool json, CancellationToken token)
       where T : BaseCommand
       where E : class {
+
+      using (var request = BuildRequest(parameter, json, out var requestBody)) {
+        using (var response = await _httpClient.SendAsync(request, token))
+          return ProcessResponse<T, E>((int)response.StatusCode, requestBody, await response.Content.ReadAsStreamAsync());
+      }
+      //return JsonConvert.DeserializeObject<E>(response);
+    }
+#else
+    private async Task<E> PostAsync<T, E>(T parameter, bool json, CancellationToken token)
+     where T : BaseCommand
+     where E : class {
 
       using (var request = BuildRequest(parameter, json, out var requestBody)) {
         using (var response = await _httpClient.SendAsync(request, token))
@@ -335,6 +367,7 @@ namespace TinkoffPaymentClientApi {
       }
       //return JsonConvert.DeserializeObject<E>(response);
     }
+#endif
 
 #if NET5_0_OR_GREATER
     private E Post<T, E>(T parameter, bool json = true)
@@ -389,8 +422,6 @@ namespace TinkoffPaymentClientApi {
         return ProcessResponse<T, E>((int)response.StatusCode, requestBody, response.GetResponseStream());
       }
     }
-
-
 #endif
   }
 }

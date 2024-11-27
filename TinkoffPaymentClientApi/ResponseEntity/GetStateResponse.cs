@@ -4,6 +4,11 @@
   /// </summary>
   public class GetStateResponse : TinkoffResponse {
     /// <summary>
+    /// Сумма в копейках
+    /// </summary>
+    [JsonRequired]
+    public uint Amount { get; set; }
+    /// <summary>
     /// Идентификатор заказа в системе продавца
     /// </summary>
     public string OrderId { get; set; } = string.Empty;
@@ -15,5 +20,6 @@
     /// Статус платежа
     /// </summary>
     public string Status { get; set; } = string.Empty;
+
   }
 }
