@@ -29,6 +29,8 @@ public class Tests {
     public bool? NullableBoolValue { get; set; }
     public DateTimeOffset DateTimeValue { get; set; }
     public DateTimeOffset? NullableDateTimeValue { get; set; }
+    public string? NullStringValue { get; set; }
+    public string StringValue { get; set; } = "some_string_по_русски";
   }
 
   [Test, Theory]
@@ -39,7 +41,7 @@ public class Tests {
     };
 
     var hash = TokenGeneratorHelper.GenerateToken(tr, "some_test_password", useExpressionBuilder);
-    Assert.That(hash, Is.EqualTo("ca40a437f1077c10c3cbfb801e2bbc064febbfe137e72d24bb917c364feaa5c8"));
+    Assert.That(hash, Is.EqualTo("60486d9144673c22835da5e8b4f7ca4f3bdf0944990fe9c1f2fd253174f90c35"));
   }
   [Test, Theory]
   public void NullbleValuesTest2(bool useExpressionBuilder) {
@@ -51,6 +53,6 @@ public class Tests {
     };
 
     var hash = TokenGeneratorHelper.GenerateToken(tr, "some_test_password", useExpressionBuilder);
-    Assert.That(hash, Is.EqualTo("474b00e527229c58aaf529513e18c3aa1a7c81da56f8e847b6271ad19ddccefe"));
+    Assert.That(hash, Is.EqualTo("f6f4f151ffb44edb354562cd1f85430d2b3561e5e529c192e905aa220493f947"));
   }
 }
