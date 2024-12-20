@@ -42,7 +42,7 @@ namespace TinkoffPaymentClientApi.Commands {
     /// Cрок жизни ссылки (не более 90 дней)
     /// </summary>
     [JsonConverter(typeof(TinkoffDateTimeConverter))]
-    public DateTime? RedirectDueDate { get; set;}
+    public DateTimeOffset? RedirectDueDate { get; set; }
     /// <summary>
     /// Адрес для получения http нотификаций
     /// </summary>
@@ -109,6 +109,7 @@ namespace TinkoffPaymentClientApi.Commands {
       CustomerKey = customerKey;
     }
 
+    [IgnoreTokenCalculate]
     private Dictionary<string, string> SafeData {
       get => Data ?? (Data = new Dictionary<string, string>());
     }
