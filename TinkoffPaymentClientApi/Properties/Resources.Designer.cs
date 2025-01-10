@@ -88,6 +88,15 @@ namespace TinkoffPaymentClientApi.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Numerator should be less then Denominator.
+        /// </summary>
+        internal static string NumeratorShouldBeLessThenDenominator {
+            get {
+                return ResourceManager.GetString("NumeratorShouldBeLessThenDenominator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error occured while processing {0} for {1}: {2}, Body: {3}.
         /// </summary>
         internal static string ProcessResponse_ErrorOccuredWhileProcessing0For12Body3 {

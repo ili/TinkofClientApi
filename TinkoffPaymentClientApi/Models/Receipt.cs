@@ -45,6 +45,23 @@ namespace TinkoffPaymentClientApi.Models {
     /// Версия ФФД. Возможные значения: <see cref="EFfdVersion"/>
     /// </summary>
     public string FfdVersion { get; set; } = EFfdVersion.Ffd_1_05;
+    /// <summary>
+    /// ФФД 1.2: Информация по клиенту.
+    /// </summary>
+    public ClientInfo? ClientInfo { get; set; }
+    /// <summary>
+    /// Тег ФФД: 1227
+    /// <para>
+    /// Идентификатор/имя клиента
+    /// </para>
+    /// </summary>
+    public string? Customer {  get; set; }
+    /// <summary>
+    /// Тег ФФД: 1228
+    /// <para>
+    /// ИНН клиента
+    /// </para>
+    /// </summary>    public string? CustomerInn { get; set; }
 
     public Receipt(string phone, string email, string taxation, IEnumerable<ReceiptItem> items) {
       if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone)) {
