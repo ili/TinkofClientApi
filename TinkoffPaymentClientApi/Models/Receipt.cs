@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using TinkoffPaymentClientApi.Enums;
 
 namespace TinkoffPaymentClientApi.Models {
   /// <summary>
@@ -40,9 +41,13 @@ namespace TinkoffPaymentClientApi.Models {
     /// </para>
     /// </summary>
     public Payments? Payments { get; set; }
+    /// <summary>
+    /// Версия ФФД. Возможные значения: <see cref="EFfdVersion"/>
+    /// </summary>
+    public string FfdVersion { get; set; } = EFfdVersion.Ffd_1_05;
 
     public Receipt(string phone, string email, string taxation, IEnumerable<ReceiptItem> items) {
-      if(string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone)) {
+      if (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(phone)) {
         throw new ArgumentNullException(TinkoffPaymentClientApi.Properties.Resources.Receipt_PhoneOrEmailShouldBeProvided);
       }
 
